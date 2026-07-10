@@ -113,3 +113,90 @@
 .auth-back a:hover {
   text-decoration: underline;
 }
+
+.dashboard-page {
+  background:
+    radial-gradient(circle at top, rgba(27, 74, 58, 0.14), transparent 44%),
+    linear-gradient(180deg, #f8efd5 0%, #f5e4ba 100%);
+}
+
+.dashboard-card {
+  width: min(100%, 380px);
+  padding: 34px 28px 30px;
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  border-radius: 18px;
+  background: rgba(255, 249, 233, 0.9);
+  border-color: rgba(20, 63, 51, 0.18);
+  box-shadow: 0 18px 40px rgba(20, 63, 51, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.dashboard-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.dashboard-email {
+  margin: 10px 0 0;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: rgba(27, 74, 58, 0.08);
+  color: #1b4a3a;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  word-break: break-word;
+}
+
+.dashboard-signout {
+  min-height: 42px;
+  min-width: 160px;
+  padding: 0 20px;
+  border: 1px solid rgba(27, 74, 58, 0.16);
+  border-radius: 999px;
+  background: #174e3a;
+  color: #f8efd4;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 8px 18px rgba(23, 78, 58, 0.2);
+}
+
+.dashboard-signout:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.dashboard-signout:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(27, 74, 58, 0.18), 0 8px 18px rgba(23, 78, 58, 0.2);
+}
+
+.dashboard-signout:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+  .dashboard-card {
+    padding: 28px 20px 24px;
+  }
+
+  .dashboard-email {
+    width: 100%;
+  }
+
+  .dashboard-signout {
+    width: 100%;
+    min-width: 0;
+  }
+}

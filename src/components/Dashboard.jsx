@@ -15,11 +15,13 @@ const Dashboard = () => {
 	}
 
 	return (
-		<main className="auth-page">
-			<section className="auth-card">
-				<h1>Dashboard</h1>
-				<p className="auth-switch">Signed in as {session.user.email}</p>
-				<button type="button" onClick={handleSignOut}>
+		<main className="auth-page dashboard-page">
+			<section className="auth-card dashboard-card" aria-labelledby="dashboard-title">
+				<h1 id="dashboard-title" className="dashboard-title">
+					Dashboard
+				</h1>
+				<p className="dashboard-email">Signed in as {session.user.email}</p>
+				<button className="dashboard-signout" type="button" onClick={handleSignOut}>
 					Sign Out
 				</button>
 			</section>
