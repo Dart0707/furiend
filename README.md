@@ -1,4 +1,9 @@
 # Furiend
+![Status](https://img.shields.io/badge/Status-Under%20Construction-orange?style=for-the-badge&logo=github)
+
+> ⚠️ **Under Construction:** This repository is a live work-in-progress. I'm actively building it out, so expect frequent updates, breaking changes, and a bit of digital dust!
+
+---
 
 **A community platform connecting pet lovers with pet-friendly experiences.**
 
@@ -40,12 +45,5 @@ FurParents is a web application built for pet parents to discover pet-friendly p
 - `/signup` - New user registration
 - `/dashboard` - Signed-in user dashboard
 
-## Getting Started
 
-```bash
-# Install dependencies
-npm install
 
-# Run development server
-npm run dev
-```
