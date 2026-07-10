@@ -1,16 +1,53 @@
-# React + Vite
+# Furiend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# FurParents 🐾
 
-Currently, two official plugins are available:
+**A community platform connecting pet lovers with pet-friendly experiences.**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+FurParents is a web application built for pet parents to discover pet-friendly places, share experiences, and connect with other pet lovers in their community.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 📝 Community Posts & Blogs
+- Share and read pet-focused stories and recommendations
+- Discover pet care tips, travel ideas, and local favorites
+- Browse community-driven content from other pet parents
 
-## Expanding the ESLint configuration
+### 🔍 Discover Pet-Friendly Places
+- Find pet-friendly restaurants, vets, and pet stores
+- Explore useful community highlights and featured places
+- View a landing page designed to help pet parents get started quickly
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 👥 User Authentication
+- Secure email/password authentication with Supabase
+- User registration and sign-in flows
+- Protected dashboard access for signed-in users
+
+### 📱 Responsive Design
+- Mobile-friendly layout that works across devices
+- Clean, welcoming design tailored for pet lovers
+- Simple navigation for browsing and account access
+
+## Tech Stack
+
+- **Frontend**: React 19, Vite
+- **Routing**: React Router DOM
+- **Authentication**: Supabase
+- **Styling**: CSS and Tailwind CSS v4
+
+## Pages
+
+- `/` - Landing page with app overview and feature sections
+- `/signin` - User login
+- `/signup` - New user registration
+- `/dashboard` - Signed-in user dashboard
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+```
