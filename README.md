@@ -1,7 +1,5 @@
 # Furiend
 
-# FurParents 🐾
-
 **A community platform connecting pet lovers with pet-friendly experiences.**
 
 FurParents is a web application built for pet parents to discover pet-friendly places, share experiences, and connect with other pet lovers in their community.
