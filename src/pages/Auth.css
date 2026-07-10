@@ -1,0 +1,115 @@
+.auth-page {
+  min-height: 100vh;
+  background: #f7ebc7;
+  display: grid;
+  place-items: center;
+  padding: 28px 16px;
+}
+
+.auth-card {
+  width: min(100%, 420px);
+  border: 1px solid rgba(20, 63, 51, 0.35);
+  border-radius: 12px;
+  background: #efe2bf;
+  box-shadow: 0 6px 14px rgba(20, 63, 51, 0.12);
+  padding: 30px 26px 20px;
+}
+
+.auth-card h1 {
+  margin: 0 0 18px;
+  text-align: center;
+  color: #1b4a3a;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  line-height: 1.1;
+}
+
+.auth-form {
+  display: grid;
+  gap: 8px;
+}
+
+.auth-form label {
+  color: #1f5140;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.auth-form input {
+  width: 100%;
+  border: 1px solid rgba(20, 63, 51, 0.45);
+  border-radius: 8px;
+  min-height: 38px;
+  padding: 0 12px;
+  background: #f7ebc7;
+  color: #163d31;
+  font-size: 0.92rem;
+}
+
+.auth-form input::placeholder {
+  color: rgba(22, 61, 49, 0.55);
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #1b4a3a;
+  box-shadow: 0 0 0 3px rgba(27, 74, 58, 0.14);
+}
+
+.auth-form button {
+  margin: 12px auto 0;
+  min-height: 38px;
+  min-width: 154px;
+  border: 0;
+  border-radius: 999px;
+  background: #174e3a;
+  color: #f8efd4;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.auth-form button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.auth-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
+  transform: none;
+}
+
+.auth-error {
+  margin: 2px 0 0;
+  color: #9b1c1c;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.auth-switch,
+.auth-back {
+  margin: 14px 0 0;
+  text-align: center;
+  color: rgba(20, 63, 51, 0.88);
+  font-size: 0.9rem;
+}
+
+.auth-back {
+  margin-top: 10px;
+}
+
+.auth-switch a,
+.auth-back a {
+  color: #174e3a;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.auth-switch a:hover,
+.auth-back a:hover {
+  text-decoration: underline;
+}

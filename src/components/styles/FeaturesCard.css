@@ -1,0 +1,49 @@
+.features-card {
+  border-radius: 18px;
+  background: #f9edc7;
+  padding: 22px 24px 20px;
+  box-shadow: 0 0 0 1px rgba(20, 63, 51, 0.04);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  will-change: transform;
+}
+
+.features-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(20, 63, 51, 0.12);
+}
+
+.features-card__icon {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #214f3b;
+  color: #f7ebc7;
+  font-size: 1rem;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.features-card__icon img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.features-card__title {
+  margin: 0 0 10px;
+  color: #214f3b;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.55rem;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.features-card__description {
+  margin: 0;
+  color: rgba(20, 63, 51, 0.9);
+  font-size: 0.98rem;
+  line-height: 1.25;
+}
