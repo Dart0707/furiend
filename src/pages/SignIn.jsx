@@ -1,3 +1,4 @@
+import {Eye, EyeOff} from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
@@ -9,8 +10,13 @@ const SignIn = () => {
   const { signInUser } = UserAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword)
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -51,20 +57,31 @@ const SignIn = () => {
           />
 
           <label htmlFor="signin-password">Password</label>
-          <input
-            id="signin-password"
-            name="password"
-            type="password"
-            placeholder="************"
-            autoComplete="current-password"
-            required
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
+          <div className="password-field">
+            <input
+              id="signin-password"
+              name="password"
+              type={showPassword ? 'text' : 'password'}
+              placeholder="************"
+              autoComplete="current-password"
+              required
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            />
+            <button
+              type="button"
+              className="toggle-password"
+              onClick={togglePasswordVisibility}
+              aria-label={showPassword ? 'Hide password' : 'Show password'}
+              aria-pressed={showPassword}
+            >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
+          </div>
 
           {error ? <p className="auth-error">{error}</p> : null}
 
-          <button type="submit" disabled={loading}>
+          <button type="submit" className="auth-submit" disabled={loading}>
             {loading ? 'Signing In...' : 'Press Here'}
           </button>
         </form>

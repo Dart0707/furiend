@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Carme&family=Niramit:wght@400;700&display=swap');
 @import "tailwindcss";
+
 
 :root {
 	font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
