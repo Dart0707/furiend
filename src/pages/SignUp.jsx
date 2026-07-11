@@ -80,7 +80,7 @@ const SignUp = () => {
             id="signup-name"
             name="name"
             type="text"
-            placeholder="Enter your first name"
+            placeholder="Enter your username"
             autoComplete="name"
             required
             value={name}
