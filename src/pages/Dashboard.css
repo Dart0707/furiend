@@ -657,3 +657,22 @@
     background-position: -200% 0;
   }
 }
+
+.post-delete-btn {
+  background: transparent;
+  border: none;
+  color: #8A8A8A;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, background-color 0.2s;
+  outline: none;
+}
+
+.post-delete-btn:hover {
+  color: #EF4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}

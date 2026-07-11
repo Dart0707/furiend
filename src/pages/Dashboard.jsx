@@ -42,6 +42,15 @@ const SendIcon = () => (
 	</svg>
 )
 
+const TrashIcon = () => (
+	<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+		<polyline points="3 6 5 6 21 6" />
+		<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+		<line x1="10" y1="11" x2="10" y2="17" />
+		<line x1="14" y1="11" x2="14" y2="17" />
+	</svg>
+)
+
 const petImages = [
 	'https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600&auto=format&fit=crop',
 	'https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600&auto=format&fit=crop',
@@ -129,6 +138,7 @@ const Dashboard = () => {
 
 				return {
 					id: post.id,
+					userId: post.user_id,
 					author: {
 						name: post.author_name,
 						avatar: authorInitials
@@ -299,6 +309,7 @@ const Dashboard = () => {
 			return publicUrl
 		} catch (err) {
 			console.warn('Storage upload failed, falling back to random photo:', err.message)
+			showToastMessage(`Storage error: ${err.message}. Using fallback photo.`)
 			// Graceful fallback to Unsplash random pet image so app works even if user did not create the bucket
 			const randomIndex = Math.floor(Math.random() * petImages.length)
 			return petImages[randomIndex]
@@ -347,6 +358,29 @@ const Dashboard = () => {
 		}
 	}
 
+	const handleDeletePost = async (postId) => {
+		const confirmDelete = window.confirm("Are you sure you want to delete this post?")
+		if (!confirmDelete) return
+
+		// Optimistic UI update
+		setPosts(prevPosts => prevPosts.filter(p => p.id !== postId))
+
+		try {
+			const { error } = await supabase
+				.from('posts')
+				.delete()
+				.eq('id', postId)
+
+			if (error) throw error
+
+			showToastMessage("Post deleted successfully!")
+		} catch (err) {
+			console.error('Error deleting post:', err.message)
+			showToastMessage(`Failed to delete post: ${err.message}`)
+			fetchPosts()
+		}
+	}
+
 	const handleShare = (postId) => {
 		const shareUrl = `${window.location.origin}/dashboard#post-${postId}`
 		navigator.clipboard.writeText(shareUrl).then(() => {
@@ -376,9 +410,8 @@ const Dashboard = () => {
 				</Link>
 
 				<nav className="header-nav">
-					<Link className="header-nav-link" to="/">Features</Link>
-					<Link className="header-nav-link" to="/dashboard">Community</Link>
-					<a className="header-nav-link" href="#contact">Contact</a>
+					<Link className="header-nav-link" to="/dashboard" style={{ borderBottom: '2px solid #FAEDCD', paddingBottom: '4px' }}>newsfeed</Link>
+					<Link className="header-nav-link" to="/places">places</Link>
 				</nav>
 
 				<div className="header-profile" ref={dropdownRef}>
@@ -511,18 +544,31 @@ const Dashboard = () => {
 					posts.map(post => {
 						return (
 							<article className="feed-card post-card" key={post.id} id={`post-${post.id}`}>
-								<div className="create-post-row" style={{ gap: '12px' }}>
-									<div className="create-post-avatar" style={{ width: '38px', height: '38px', fontSize: '13px' }}>
-										{post.author.avatar}
+								<div className="create-post-row" style={{ gap: '12px', justifyContent: 'space-between', alignItems: 'center' }}>
+									<div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+										<div className="create-post-avatar" style={{ width: '38px', height: '38px', fontSize: '13px' }}>
+											{post.author.avatar}
+										</div>
+										<div style={{ display: 'flex', flexDirection: 'column' }}>
+											<span style={{ fontFamily: "'Niramit', sans-serif", fontWeight: '700', fontSize: '14px', color: '#1B4332' }}>
+												{post.author.name}
+											</span>
+											<span style={{ fontFamily: "'Carme', sans-serif", fontSize: '11px', color: '#8A8A8A' }}>
+												Pet Parent
+											</span>
+										</div>
 									</div>
-									<div style={{ display: 'flex', flexDirection: 'column' }}>
-										<span style={{ fontFamily: "'Niramit', sans-serif", fontWeight: '700', fontSize: '14px', color: '#1B4332' }}>
-											{post.author.name}
-										</span>
-										<span style={{ fontFamily: "'Carme', sans-serif", fontSize: '11px', color: '#8A8A8A' }}>
-											Pet Parent
-										</span>
-									</div>
+
+									{post.userId === session.user.id && (
+										<button
+											type="button"
+											className="post-delete-btn"
+											onClick={() => handleDeletePost(post.id)}
+											aria-label="Delete post"
+										>
+											<TrashIcon />
+										</button>
+									)}
 								</div>
 
 								<p className="post-text">{post.text}</p>
