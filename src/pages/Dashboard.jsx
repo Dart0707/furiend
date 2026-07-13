@@ -51,17 +51,9 @@ const TrashIcon = () => (
 	</svg>
 )
 
-const petImages = [
-	'https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600&auto=format&fit=crop',
-	'https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600&auto=format&fit=crop',
-	'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&auto=format&fit=crop',
-	'https://images.unsplash.com/photo-1537151608828-ea2b117b62e4?w=600&auto=format&fit=crop',
-	'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&auto=format&fit=crop'
-]
-
 const Dashboard = () => {
 	const navigate = useNavigate()
-	const { session, signOutUser } = UserAuth()
+	const { session, loading: authLoading, signOutUser } = UserAuth()
 
 	const [showDropdown, setShowDropdown] = useState(false)
 	const [toast, setToast] = useState({ show: false, message: '' })
@@ -388,6 +380,14 @@ const Dashboard = () => {
 		}).catch(() => {
 			showToastMessage("Could not copy link")
 		})
+	}
+
+	if (authLoading) {
+		return (
+			<div className="dashboard-container" style={{ display: 'grid', placeItems: 'center', minHeight: '100vh' }}>
+				<div style={{ fontFamily: "'Carme', sans-serif", color: '#1B4332', fontSize: '18px', fontWeight: '700' }}>Loading...</div>
+			</div>
+		)
 	}
 
 	if (!session) {

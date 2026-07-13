@@ -1,4 +1,4 @@
-import {Eye, EyeOff} from 'lucide-react'
+import { Eye, EyeOff } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
@@ -82,7 +82,7 @@ const SignIn = () => {
           {error ? <p className="auth-error">{error}</p> : null}
 
           <button type="submit" className="auth-submit" disabled={loading}>
-            {loading ? 'Signing In...' : 'Press Here'}
+            {loading ? 'Signing In...' : 'Sign in'}
           </button>
         </form>
 
