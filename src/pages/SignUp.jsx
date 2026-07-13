@@ -47,9 +47,9 @@ const SignUp = () => {
 
     try {
       const data = {
-        service_id: 'service_rrl6csm',
-        template_id: 'template_tzgluu6',
-        user_id: 'AF_k6svQ8CKsruYYU',
+        service_id: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        template_id: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        user_id: import.meta.env.VITE_EMAILJS_USER_ID,
         template_params: {
           email: toEmail,
           name: toName,
