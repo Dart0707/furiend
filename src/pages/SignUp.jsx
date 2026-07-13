@@ -238,7 +238,7 @@ const SignUp = () => {
             onChange={(event) => setEmail(event.target.value)}
           />
 
-          <label htmlFor="signup-name">Full name</label>
+          <label htmlFor="signup-name">Username</label>
           <input
             id="signup-name"
             name="name"
