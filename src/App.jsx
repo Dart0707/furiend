@@ -4,25 +4,25 @@ import { Link } from 'react-router-dom'
 
 const featureCards = [
   {
-    icon: <img src="/person.svg" alt="" aria-hidden="true" />,
+    icon: <img src="/person.svg" alt="" aria-hidden="true" loading="lazy" />,
     title: 'Connect with Fur Parents',
     description:
       'Join a thriving community of pet lovers, share experiences, and make friends who understand your passion.',
   },
   {
-    icon: <img src="/pin.svg" alt="" aria-hidden="true" />,
+    icon: <img src="/pin.svg" alt="" aria-hidden="true" loading="lazy" />,
     title: 'Find Pet-Friendly Places',
     description:
       'Discover restaurants with outdoor seating for your pup, trusted veterinarians, and pet supply stores nearby.',
   },
   {
-    icon: <img src="/book.svg" alt="" aria-hidden="true" />,
+    icon: <img src="/book.svg" alt="" aria-hidden="true" loading="lazy" />,
     title: 'Read & Share Blogs',
     description:
       'Discover pet care tips, travel stories, and advice from experienced pet parents just like you.',
   },
   {
-    icon: <img src="/star.svg" alt="" aria-hidden="true" />,
+    icon: <img src="/star.svg" alt="" aria-hidden="true" loading="lazy" />,
     title: 'Rate & Review',
     description:
       'Help other pet parents make informed decisions by sharing your honest reviews and ratings.',
@@ -82,7 +82,7 @@ const HomePage = () => {
           </div>
 
           <div className="hero__visual">
-            <img src="/image%201.png" alt="Two women sitting with a dog and a cat" />
+            <img src="/image%201.png" alt="Two women sitting with a dog and a cat" loading="lazy" />
           </div>
         </div>
       </section>

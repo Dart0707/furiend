@@ -43,8 +43,6 @@ const SignUp = () => {
     const expiration = new Date(now.getTime() + 15 * 60 * 1000)
     const expirationTimeStr = expiration.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
 
-    console.log(`[Furiend Email Service] Sending OTP to ${toEmail}: ${code}`)
-
     try {
       const data = {
         service_id: import.meta.env.VITE_EMAILJS_SERVICE_ID,

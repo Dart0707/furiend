@@ -483,7 +483,7 @@ const Dashboard = () => {
 						{selectedImagePreview && (
 							<div className="create-post-row" style={{ marginTop: '14px' }}>
 								<div className="create-post-image-preview">
-									<img src={selectedImagePreview} alt="Attached Pet Preview" />
+									<img src={selectedImagePreview} alt="Attached Pet Preview" loading="lazy" />
 									<button
 										type="button"
 										className="remove-preview-btn"
